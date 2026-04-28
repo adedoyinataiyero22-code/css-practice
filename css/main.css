@@ -16,19 +16,21 @@ html {
   --primary-200: #c1beff;
   --primary-300: #a29dff;
   --primary-400: #837dff;
-  --primary-500: #645cff;
+  --primary-500: #6c63ff;
   --primary-600: #504acc;
-  --primary-700: #3c3799;
+  --primary-700: #574fd6;
   --primary-800: #282566;
   --primary-900: #141233;
+  --primary-dark:#1e1b4b;
+  --primary:#4f46e5;
 
   /* grey */
   --grey-50: #f8fafc;
-  --grey-100: #f1f5f9;
+  --grey-100: #f9f9f9;
   --grey-200: #e2e8f0;
   --grey-300: #cbd5e1;
   --grey-400: #94a3b8;
-  --grey-500: #64748b;
+  --grey-500: #777;
   --grey-600: #475569;
   --grey-700: #334155;
   --grey-800: #1e293b;
@@ -40,7 +42,14 @@ html {
   --red-dark: #842029;
   --green-light: #d1e7dd;
   --green-dark: #0f5132;
-
+/*accent */
+--accent:#f97316;
+/*background*/
+--bg-main:#f8fafc;
+--bg-card:#ffffff;
+/*text*/
+--text-main:#0f172a;
+--text-light:#64748b;
   /* fonts  */
   --headingFont: 'Roboto', sans-serif;
   --bodyFont: 'Nunito', sans-serif;
@@ -65,11 +74,11 @@ html {
 }
 
 body {
-  background: var(--backgroundColor);
-  font-family: var(--bodyFont);
+  background: var(--bg-main);
+  font-family: Roboto,Arial;
   font-weight: 400;
   line-height: 1.75;
-  color: var(--textColor);
+  color: var(--text-main);
 }
 
 p {
@@ -263,8 +272,16 @@ Navbar
   display: flex;
   justify-content: center;
   align-items: center;
+  background: white;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
  /* background: blue;*/
 
+}
+section{
+  margin-bottom: 3rem;
 }
 .nav-center{
   width: 90vw;
@@ -354,17 +371,24 @@ Navbar
   width: 90vw;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding-top: 2rem;
-  min-height: calc(100vh - (6rem + 4rem));
+  padding-top: 2rem 1.5rem;
 }
 .page-footer{
-  height: 4rem;
-  background: var(--black);
-  color: var(--white);
+  min-height: 5rem;
+  padding: 1rem;
+  background: var(--primary-dark);
+  color: #cbd5f5;
   display: flex;
   align-items: center;
   justify-content: center;
-  ;
+  font-size: 0.9rem;
+}
+.page-footer a:hover{
+  text-decoration: underline;
+  color: var(--accent);
+}
+.page-footer a{
+  color: #cbd5f5;
 }
 .page-footer p{
   margin-bottom: 0;
@@ -374,11 +398,20 @@ Navbar
   color: var(--primary-500);
 }
 .hero{
-  height: 40vh;
-  background: url('../assets/main.jpeg') center/cover no-repeat;
+  height: 45vh;
+  background: linear-gradient(
+    to right,
+    rgba(15,23,42,0.85),
+    rgba(15,23,42,0.4)
+  ),
+  url('../assets/main.jpeg') center/cover no-repeat;
   margin-bottom: 2rem;
-  border-radius: var(--borderRadius);
+  border-radius:12px;
   position: relative;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  backdrop-filter: blur(2px);
+  overflow: hidden;
 }
 .hero-container{
   position: absolute;
@@ -394,7 +427,12 @@ Navbar
 }
 .hero-text{
   text-align: center;
-  color: var(--white);
+  color: white;
+  position: absolute;
+  z-index: 2;
+  opacity: 0.85;
+  font-weight: 700;
+  font-size: 2.8rem;
 }
 @media screen and (min-width: 768px) {
   .hero-text h1{
@@ -403,8 +441,13 @@ Navbar
   }
 }
 .recipes-container{
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
   display: grid;
-  gap: 2rem 1rem;
+  gap: 2rem ;
+  grid-template-columns: 250px 1fr;
 }
 .tags-container{
   order: 1;
@@ -414,7 +457,8 @@ Navbar
 }
 .recipes-list{
   display: grid;
-  gap: 2rem 1rem;
+  gap: 2rem ;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   padding-bottom: 3rem;
 }
 .tags-container h4{
@@ -422,25 +466,37 @@ Navbar
   font-weight: 500;
 }
 .tags-list{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 .tags-list a{
-  text-transform: capitalize;
-  display: block;
-  color: var(--grey-500);
-  transition: var(--transition);
+  background:#eef2ff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
 }
 .tags-list a:hover{
-  color: var(--primary-500);
+  background:var(--primary);
+  color: white;
 }
 .recipe{
   display: block;
+  overflow: hidden;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  background: white;
+  backdrop-filter: blur(6px);
 }
 .recipe-img {
   height: 15rem;
-  border-radius: var(--borderRadius);
+  border-radius: 10px;
   margin-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+.recipe:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
 }
 .recipe h5{
   margin-bottom: 0;
