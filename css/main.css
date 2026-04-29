@@ -442,12 +442,18 @@ section{
 }
 .recipes-container{
   background: white;
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
   display: grid;
   gap: 2rem ;
-  grid-template-columns: 250px 1fr;
+  align-items: start;
+}
+@media screen  and (min-width: 768px) {
+  .recipes-container{
+    grid-template-columns:200px 1fr;
+    padding: 2rem;
+  }
 }
 .tags-container{
   order: 1;
@@ -469,6 +475,7 @@ section{
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  max-width: 100%;
 }
 .tags-list a{
   background:#eef2ff;
@@ -479,6 +486,7 @@ section{
 .tags-list a:hover{
   background:var(--primary);
   color: white;
+  transition: all 0.2s ease;
 }
 .recipe{
   display: block;
@@ -486,20 +494,24 @@ section{
   border-radius: 12px;
   transition: all 0.3s ease;
   background: white;
-  backdrop-filter: blur(6px);
+  padding: 0.5rem;
+  border-radius: 12px;
+
 }
 .recipe-img {
+  width: 100%;
   height: 15rem;
-  border-radius: 10px;
+  object-fit: cover;
   margin-bottom: 1rem;
   border-bottom: 1px solid #eee;
+  border-radius: 12px;
 }
 .recipe:hover{
   transform: translateY(-6px);
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
 }
 .recipe h5{
-  margin-bottom: 0;
+  margin-bottom: 0.5rem;
   line-height: 1;
   color: var(--grey-700);
 }
@@ -509,6 +521,7 @@ section{
   margin-top: 0.5rem;
   color: var(--grey-500);
   letter-spacing: var(--letterSpacing);
+  font-size: 0.5rem;
 }
 @media screen and (min-width:576px) {
   .recipes-list{
@@ -518,31 +531,34 @@ section{
     height: 10rem;
   }
 }
-@media screen and (min-width:992px) {
+@media screen and (min-width:768px) {
   .recipes-container{
     grid-template-columns: 200px 1fr;
   }
   .recipe p{
-    font-size: 0.85rem;
+    font-size: 0.95rem;
   }
   .tags-container{
     order: 0;
   }
-  .tags-list{
-    grid-template-columns: 1fr;
-  }
 }
-@media screen and (min-width:1200px) {
+@media screen and (min-width:1024px) {
   .recipe h5{
     font-size: 1.15rem;
   }
   .recipes-list{
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto, minmax(250px 1fr));
+  }
+  .recipes-container{
+    grid-template-columns: 250px 1fr;
   }
 }
 .error-page{
   text-align: center;
   padding-top: 5rem;
+  min-height: 60vh;
+  flex-direction: column;
+  justify-content: center;
 }
 .error-page h1{
   font-size: 9rem;
@@ -552,7 +568,7 @@ section{
 }
 .about-page h2{
 text-transform:none;
-font-size: bold;
+font-weight: bold;
 }
 .about-page{
   display: grid;
@@ -571,6 +587,8 @@ font-size: bold;
   }
   .about-img{
     height: 100%;
+    width: 100%;
+    object-fit: cover;
   }
 }
 .contact-form{
