@@ -1,5 +1,6 @@
 const getElement = (selector) => {
   const element = document.querySelector(selector)
+
   if (element) return element
   throw Error(`No element found: ${selector}`)
 }
