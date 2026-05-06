@@ -451,7 +451,7 @@ section{
   color: white;
   position: absolute;
   z-index: 2;
-  opacity: 0.85;
+  opacity: 0.5;
   font-weight: 700;
   font-size: 2.8rem;
 }
@@ -542,7 +542,7 @@ section{
   margin-top: 0.5rem;
   color: var(--grey-500);
   letter-spacing: var(--letterSpacing);
-  font-size: 0.5rem;
+  font-size: 1rem;
 }
 @media screen and (min-width:576px) {
   .recipes-list{
