@@ -302,7 +302,10 @@ section{
   width: 200px;
 }
 .nav-btn{
-  padding: 0.15rem 0.75rem;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
 }
 .nav-btn i{
   font-size: 1.25rem;
@@ -316,7 +319,8 @@ section{
 
 }
 .show-links{
-  height: 310px;
+  height: 400px;
+  overflow: visible;
 }
 .nav-link{
   display: block;
@@ -430,7 +434,7 @@ section{
   color: white;
   position: absolute;
   z-index: 2;
-  opacity: 0.85;
+  opacity: 0.6;
   font-weight: 700;
   font-size: 2.8rem;
 }
@@ -442,12 +446,12 @@ section{
 }
 .recipes-container{
   background: white;
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
   display: grid;
-  gap: 2rem ;
-  grid-template-columns: 250px 1fr;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
 }
 .tags-container{
   order: 1;
